@@ -3,9 +3,9 @@ class Num(val value:Int):Expr
 class Sum(val left:Expr, val right:Expr):Expr
 
 fun <T> joinToString(collection:Collection<T>,
-			separator:String,
-			prefix:String,
-			postfix:String):String {
+			separator:String = ", ",
+			prefix:String="",
+			postfix:String=""):String {
 	
 	val result = StringBuilder(prefix)
 
@@ -19,5 +19,6 @@ fun <T> joinToString(collection:Collection<T>,
 }
 fun main (args:Array<String>) {
     val list = listOf(1,2,3)
-    println (joinToString(list, "; ", "(", ")"))
+    println (joinToString(list, separator="; ", prefix="(", postfix=")"))
+    println (joinToString(list))
 }
